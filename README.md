@@ -24,6 +24,19 @@ of assigned series to this cluster.
 The results can be examined by drawing graphs of the zscore normalized values
 and the corresponding centroid.
 
+## Getting right number of clusters
+
+The only nob k-Shape exposes to tune is the number of clusters. For other cluster
+algorithm such as k-Mean already a number of methods exists. This [wikipedia
+article](https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set) gives a nice introduction
+into this topic. For k-Shape the same methods can be used. However most of the existing implementation
+use the Euclidian distance, instead of k-Shapes propritary shape-based distance (sbd).
+You can follow this [tutorial](http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html),
+which uses the silhouette index with the following changes:
+
+```
+```
+
 ## Gotchas when working with real-world time series
 
 - If the data is available from different sources with same frequency but at different points in time, it needs to be aligned.

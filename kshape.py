@@ -74,13 +74,13 @@ def _ncc_c(x,y):
     return np.real(cc) / (norm(x) * norm(y))
 
 
-def _sbd(x, y):
+def sbd(x, y):
     """
-    >>> _sbd([1,1,1], [1,1,1])
+    >>> sbd([1,1,1], [1,1,1])
     (-2.2204460492503131e-16, array([1, 1, 1]))
-    >>> _sbd([0,1,2], [1,2,3])
+    >>> sbd([0,1,2], [1,2,3])
     (0.043817112532485103, array([1, 2, 3]))
-    >>> _sbd([1,2,3], [0,1,2])
+    >>> sbd([1,2,3], [0,1,2])
     (0.043817112532485103, array([0, 1, 2]))
     """
     ncc = _ncc_c(x, y)
@@ -109,7 +109,7 @@ def _extract_shape(idx, x, j, cur_center):
             if cur_center.sum() == 0:
                 opt_x = x[i]
             else:
-                _, opt_x = _sbd(cur_center, x[i])
+                _, opt_x = sbd(cur_center, x[i])
             _a.append(opt_x)
     a = np.array(_a)
 
